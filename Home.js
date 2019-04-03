@@ -1,20 +1,24 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, StyleSheet } from 'react-native'
 
-class Home extends Component {
-    state = {
-        myState = "hello world."
-    }
-
-    updateState = () => this.setState({ myState: 'The state is updated' })
-
-    render() {
-        return <View>
-            <Text onPress = {this.updateState}>
-               {this.state.myState}
-            </Text>
-         </View>
-    }
+const Home = (props) => {
+    return (
+        <View >
+           <Text onPress = {props.updateState} style={styles.myState}>
+              {props.myState}
+           </Text>
+        </View>
+     )
 }
 
 export default Home;
+
+const styles = StyleSheet.create ({
+    myState: {
+       marginTop: 20,
+       textAlign: 'center',
+       color: 'red',
+       fontWeight: 'bold',
+       fontSize: 20
+    }
+ })
